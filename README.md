@@ -1,2 +1,4 @@
-# Babes-Arhitectura-Sistemelor-de-Calcul
- ASC 
+# Arhitectura Sistemelor De Calcul
+
+Semestrul 1 Babeș Bolyai
+
