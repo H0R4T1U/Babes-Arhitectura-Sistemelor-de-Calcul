@@ -17,7 +17,8 @@ segment data use32 class=data
     ;bitii 27-31 a lui MNew au valoarea 0
     ;bitii 8-26 din MNew sunt identici cu bitii 8-26 a lui M.
     m dd 11000011101001011011011011110000b ; m = C3A5 B6F0
-    mnew dd 0
+    mnew dd 0 ;0000 0011 1010 0101 1011 0110 1111 0111
+              ; 0    3    A    5    B    6     F   7
 ; the program code will be part of a segment called code
 segment code use32 class=code
 start:
@@ -27,8 +28,13 @@ start:
     mov cl, 5
     ror ax,cl ; -> al = 07h
     or ax, 0000000011110000b
-    mov bx, 0
-    or bx, ax ;-> bx = 1111 0111 f7
-	; call exit(0) ), 0 represents status code: SUCCESS
+    mov ebx, 0
+    or bx, ax ;-> bx = 00 f7
+
+    mov eax, [m]
+	and eax, 0x07ffff00;0000 0111 1111 1111 1111 1111 0000 0000, selectam doar biti 26-8
+    or ebx,eax ; ii adaugam la ebx obtinand astfel rez final
+    mov [mnew],ebx
+    ; call exit(0) ), 0 represents status code: SUCCESS
 	push dword 0 ; saves on stack the parameter of the function exit
 	call [exit] ; function exit is called in order to end the execution of the program
