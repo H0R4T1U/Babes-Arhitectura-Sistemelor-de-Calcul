@@ -5,7 +5,7 @@
 
 
 
-|  Laborator | eorie  |  Exerciții |
+|  Laborator | Teorie  |  Exerciții |
 |:-: |:-:|:-:|
 | I  |  [Teorie](https://www.cs.ubbcluj.ro/~vancea/asc/ro-lab1-teorie.php) | [Exerciții](https://www.cs.ubbcluj.ro/~vancea/asc/ro-lab1-exercitii.php)  |
 | II |  [Teorie](https://www.cs.ubbcluj.ro/~vancea/asc/ro-lab2-teorie.php) | [Exerciții](https://www.cs.ubbcluj.ro/~vancea/asc/ro-lab2-exercitii.php)  |
