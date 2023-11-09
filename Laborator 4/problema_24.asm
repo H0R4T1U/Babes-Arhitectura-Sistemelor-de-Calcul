@@ -37,4 +37,4 @@ start:
     mov [mnew],ebx
     ; call exit(0) ), 0 represents status code: SUCCESS
 	push dword 0 ; saves on stack the parameter of the function exit
-	call [exit] ; function exit is called in order to end the execution of the program
+	call [exit] ; function exit is called in order to end the execution of the program\

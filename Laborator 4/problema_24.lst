@@ -1,0 +1,40 @@
+     1                                  bits 32 ;assembling for the 32 bits architecture
+     2                                  global start
+     3                                  
+     4                                  ; we ask the assembler to give global visibility to the symbol called start 
+     5                                  ;(the start label will be the entry point in the program) 
+     6                                  extern exit ; we inform the assembler that the exit symbol is foreign; it exists even if we won't be defining it
+     7                                  import exit msvcrt.dll  ; we specify the external library that defines the symbol
+     8                                  		; msvcrt.dll contains exit, printf and all the other important C-runtime functions
+     9                                  
+    10                                  ; our variables are declared here (the segment is called data) 
+    11                                  segment data use32 class=data
+    12                                  ; ... 
+    13                                      ;Se da dublucuvantul M. Sa se obtina dublucuvantul MNew astfel:
+    14                                  
+    15                                      ;bitii 0-3 a lui MNew sunt identici cu bitii 5-8 a lui M
+    16                                      ;bitii 4-7 a lui MNew au valoarea 1
+    17                                      ;bitii 27-31 a lui MNew au valoarea 0
+    18                                      ;bitii 8-26 din MNew sunt identici cu bitii 8-26 a lui M.
+    19 00000000 F0B6A5C3                    m dd 11000011101001011011011011110000b ; m = C3A5 B6F0
+    20 00000004 00000000                    mnew dd 0 ;0000 0011 1010 0101 1011 0110 1111 0111
+    21                                                ; 0    3    A    5    B    6     F   7
+    22                                  ; the program code will be part of a segment called code
+    23                                  segment code use32 class=code
+    24                                  start:
+    25                                  ; ... 
+    26 00000000 66A1[00000000]              mov ax, [m]; luam primi 16 biti ai lui m
+    27 00000006 6625E001                    and ax, 0000000111100000b ; -> 
+    28 0000000A B105                        mov cl, 5
+    29 0000000C 66D3C8                      ror ax,cl ; -> al = 07h
+    30 0000000F 660DF000                    or ax, 0000000011110000b
+    31 00000013 BB00000000                  mov ebx, 0
+    32 00000018 6609C3                      or bx, ax ;-> bx = 00 f7
+    33                                  
+    34 0000001B A1[00000000]                mov eax, [m]
+    35 00000020 2500FFFF07              	and eax, 0x07ffff00;0000 0111 1111 1111 1111 1111 0000 0000, selectam doar biti 26-8
+    36 00000025 09C3                        or ebx,eax ; ii adaugam la ebx obtinand astfel rez final
+    37 00000027 891D[04000000]              mov [mnew],ebx
+    38                                      ; call exit(0) ), 0 represents status code: SUCCESS
+    39 0000002D 6A00                    	push dword 0 ; saves on stack the parameter of the function exit
+    41 0000002F FF15[00000000]          	call [exit] ; function exit is called in order to end the execution of the program
