@@ -20,12 +20,12 @@ segment data use32 class=data
     b dw 1001101110111110b
     c dd 0
     ;0000 0000 1111 0111 , bx = 00F7
-    ;0110 1111 1000 0000 6f80
+    ;1111 1111 0110 1111 1000 0000, C = FF FF 6F 80
 ; the program code will be part of a segment called code
 segment code use32 class=code
 start:
 ; ...
-    mov bx, 0xFFFF
+    mov bx, 0xFFFF ; biti 16-31
     push bx,; impingem partea superioara a lui c
 
     mov ebx, 0
@@ -33,7 +33,7 @@ start:
     and ax, 0000000000000111b ; selectam bitii 0-2 din a
     mov cl, 7 
     rol ax, cl ; rotim la dreapta 7 pozitii biti  0-2 din a ca sa fie pe bitii 7-9
-    or bx, ax ; 0-6 7-9
+    or bx, ax ; 0-6=0 7-9=a
 
     mov ax, [b]
     and ax, 0011111100000000b

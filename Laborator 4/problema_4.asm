@@ -10,7 +10,8 @@ import exit msvcrt.dll  ; we specify the external library that defines the symbo
 ; our variables are declared here (the segment is called data) 
 segment data use32 class=data
 ; ... 
-    ;Se da octetul A. Sa se obtina numarul intreg n reprezentat de bitii 2-4 ai lui A. Sa se obtina apoi in B octetul rezultat prin rotirea spre dreapta a lui A cu n pozitii.
+    ;Se da octetul A. Sa se obtina numarul intreg n reprezentat de bitii 2-4 ai lui A. 
+    ;Sa se obtina apoi in B octetul rezultat prin rotirea spre dreapta a lui A cu n pozitii.
     ;Sa se obtina dublucuvantul C:
 
     ;bitii 8-15 ai lui C sunt 0
@@ -27,10 +28,10 @@ segment code use32 class=code
 start:
 ; ... 
     mov al, [a]
-    and al, 00011100b
-    mov cl, al
+    and al, 00011100b ; biti 2-4 din a, n
+    mov cl, al ; cl = 18h = n
     mov al, [a]
-    ror al, cl
+    ror al, cl ; rotim pe al cu n pozitii
     mov [b], al
     mov bl, [b] ; bl = 5a
     mov bh, [a]; bh = 5a

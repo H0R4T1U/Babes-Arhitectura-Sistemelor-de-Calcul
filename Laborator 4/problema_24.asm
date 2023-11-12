@@ -24,10 +24,10 @@ segment code use32 class=code
 start:
 ; ... 
     mov ax, [m]; luam primi 16 biti ai lui m
-    and ax, 0000000111100000b ; -> 
-    mov cl, 5
+    and ax, 0000000111100000b ; -> selectam bitii 5-8
+    mov cl, 5 ; ii mutam 5 pozitii la dreapta 0-3
     ror ax,cl ; -> al = 07h
-    or ax, 0000000011110000b
+    or ax, 0000000011110000b ; -> setam bitii 4-7 la 1
     mov ebx, 0
     or bx, ax ;-> bx = 00 f7
 
