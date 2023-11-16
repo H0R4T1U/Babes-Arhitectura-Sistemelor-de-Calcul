@@ -1,0 +1,36 @@
+     1                                  bits 32 
+     2                                  global start
+     3                                  
+     4                                  
+     5                                  extern exit 
+     6                                  import exit msvcrt.dll  
+     7                                  
+     8                                  
+     9                                  segment data use32 class=data
+    10                                      ;Se da un sir A de dublucuvinte. Cunstruiti doua siruri de octeti  
+    11                                      ; B1: contine ca elemente partea inferioara a cuvintelor inferioare din A
+    12                                      ; B2: contine ca elemente partea superioara a cuvintelor superioare din A
+    13 00000000 AB0512FF70563412EF-         a dd 0xFF1205AB,12345670h,89ABCDEFh
+    13 00000009 CDAB89             
+    14                                      len equ ($-a)/4
+    15 0000000C 00<rept>                    b1 times len db 0
+    16 0000000F 00<rept>                    b2 times len db 0
+    17                                      
+    18                                  
+    19                                  segment code use32 class=code
+    20                                  start:
+    21                                  ; ... 
+    22 00000000 FC                          cld
+    23 00000001 BE[00000000]                mov esi, a
+    24 00000006 B903000000                  mov ecx, len
+    25 0000000B BB00000000                  mov ebx, 0
+    26                                      repeta:
+    27 00000010 AD                              lodsd;incarcam primul dublu cuvant
+    28 00000011 8883[0C000000]                  mov [b1+ebx], al;b1 = partea inferioara a cuvantului inferior din A
+    29 00000017 C1E810                          shr eax, 16
+    30 0000001A 88A3[0F000000]                  mov [b2+ebx],ah ;calcul de adresa bazata :), b2= partea superiaoara a cuvantului superior din a
+    31 00000020 83C301                          add ebx, 1;adaugam 1 la ebx ca urmatorul calcul de adresa sa fie cu un byte mai in fata
+    32 00000023 E2EB                        loop repeta
+    33                                  	; call exit(0) ), 0 represents status code: SUCCESS
+    34 00000025 6A00                    	push dword 0 ; saves on stack the parameter of the function exit
+    35 00000027 FF15[00000000]          	call [exit] ; function exit is called in order to end the execution of the program
