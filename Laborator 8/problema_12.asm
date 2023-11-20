@@ -11,6 +11,7 @@ import scanf msvcrt.dll      ; similar pentru scanf
 segment  data use32 class=data
 	a dd 0;exitindem la DWORD ca sa nu dea overflow       ; in aceasta variabila se va stoca valoarea citita de la tastatura
     msg2 db "AFISARE PROGRAM!",0
+    pozitiv db 10,13,"Nr introdus nu este negativ!",0
     message  db 10, 13,"A=%d (baza 10), a=%x (baza_16)",0
 	format  db "%i", 0  ; %d <=> un numar decimal (baza 10)
     
@@ -26,20 +27,30 @@ segment  code use32 class=code
         call  [scanf]       ; apelam functia scanf pentru citire
         add  esp, 4 * 2
         ; eliberam parametrii de pe stiva; 4 = dimensiunea unui dword; 2 = nr de parametri
-        
-        push dword msg2
+        push dword msg2 ; afisam mesajul AFISARE PROGRAM
         call [printf]
         add esp, 4*1
-        ;convertim n la dword pentru a pune valoarea pe stiva 
-        mov  eax,[a]    
-        ;afisam mesajul si valoarea lui n
-
-        push  eax
-        push eax
-        push  dword message 
-        call  [printf]
-        add  esp,4*2 
         
+        mov eax, [a] ; VERICAM DACA NR INTRODUS ESTE NEGATIV
+        cmp eax, 0
+        jge invalid 
+        negativ:
+            mov  eax,[a]   
+
+            push  eax
+            push eax
+            push  dword message 
+            call  [printf]
+            add  esp,4*2 
+        
+        final:
         ; exit(0)
-        push  dword 0     ; punem pe stiva parametrul pentru exit
-        call  [exit]       ; apelam exit pentru a incheia programul
+            push  dword 0     ; punem pe stiva parametrul pentru exit
+            call  [exit]       ; apelam exit pentru a incheia programul
+     
+        invalid :
+            push dword pozitiv
+            call [printf]
+            add esp, 4*1
+            jmp final
+            
