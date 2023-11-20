@@ -36,11 +36,11 @@ start:
     mov ebx, 0
     repeta:
         mov al, [s + esi]
-        mov [d1 + edi], al
+        mov [d1 + edi], al ;d1 = elem poz para
         inc esi
         inc edi
         mov al, [s+ esi]
-        mov [d2 + ebx], al
+        mov [d2 + ebx], al ;d2 = elem poz impara 
         inc esi
         inc ebx
     loop repeta
