@@ -93,3 +93,5 @@ segment code use32 class=code
                 cmp al, ' ' ; trece la urmatorul 
                 je clear_cuvant
             jmp repeta3
+
+
