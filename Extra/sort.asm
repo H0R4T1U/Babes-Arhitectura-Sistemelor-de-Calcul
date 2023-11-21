@@ -15,16 +15,17 @@ start:
     mov esi, sir
     mov edi, sir+1
     loop:
-        cmp ebx,0
-        dec ebx
+        push ecx
         ja sorteaza
-        jmp finish
+        jbe finish
     
     
     
 finish:
-    mov ecx,ebx
-    jmp loop
+    pop ecx
+    dec ecx
+    cmp ecx,0
+    jnz loop
 	push dword 0 
 	call [exit] 
 
