@@ -8,6 +8,7 @@ segment data use32 class=data
     sir db 100, 21, 1, 30, 45, 12, 2, 3, 15
     len equ $-sir
 
+
 segment code use32 class=code
 start:
     mov ebx,len-1
