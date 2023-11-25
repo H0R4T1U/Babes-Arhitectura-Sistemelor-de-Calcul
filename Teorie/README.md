@@ -13,11 +13,6 @@
 |  IV| [Teorie](https://www.cs.ubbcluj.ro/~vancea/asc/ro-lab4-teorie.php)  | [Exerciții](https://www.cs.ubbcluj.ro/~vancea/asc/ro-lab4-exercitii.php)  | [Exemplu](https://www.cs.ubbcluj.ro/~vancea/asc/ro-lab4-exemple.php) |
 |  V |  [Teorie](https://www.cs.ubbcluj.ro/~vancea/asc/ro-lab5-teorie.php) | [Exerciții](https://www.cs.ubbcluj.ro/~vancea/asc/ro-lab5-exercitii.php)  | [Exemplu](https://www.cs.ubbcluj.ro/~vancea/asc/ro-lab5-exemple.php) |
 |  VI|  [Teorie](https://www.cs.ubbcluj.ro/~vancea/asc/ro-lab6-teorie.php) | [Exerciții](https://www.cs.ubbcluj.ro/~vancea/asc/ro-lab6-exercitii.php)  | [Exemplu](https://www.cs.ubbcluj.ro/~vancea/asc/ro-lab6-exemple.php)|
-|  VI|   |   |
-| VII|   |   |
-|VIII|   |   |
-|  IX|   |   |
-|  X |   |   |
-|  XI|   |   |
-| XII|   |   |
-| XII|   |   |
+|VIII-XI|[Teorie](https://www.cs.ubbcluj.ro/~vancea/asc/ro-lab8-teorie.php)   | [Exerciții](https://www.cs.ubbcluj.ro/~vancea/asc/ro-lab8-exercitii.php)  |[Exemple](https://www.cs.ubbcluj.ro/~vancea/asc/ro-lab8-exemple.php) |
+|  XI|[Teorie](https://www.cs.ubbcluj.ro/~vancea/asc/ro-lab11-teorie.php)  | [Exerciții](https://www.cs.ubbcluj.ro/~vancea/asc/ro-lab11-exercitii.php)   | [Exemple](https://www.cs.ubbcluj.ro/~vancea/asc/ro-lab11-exemple.php) |
+| XII|[Teorie](https://www.cs.ubbcluj.ro/~vancea/asc/ro-lab12-teorie.php)   |[Exerciții](https://www.cs.ubbcluj.ro/~vancea/asc/ro-lab12-exercitii.php)   |[Exemple](https://www.cs.ubbcluj.ro/~vancea/asc/ro-lab12-exemple.php) |
