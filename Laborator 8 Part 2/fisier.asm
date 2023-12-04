@@ -34,7 +34,7 @@ start:
     push dword 1
     push dword text   
     call [fread]
-    add esp, 4*4
+    add esp, 4*46
 
     push dword text
     push dword format
