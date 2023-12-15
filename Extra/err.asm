@@ -5,7 +5,7 @@ global start
 ;(the start label will be the entry point in the program) 
 extern exit ; we inform the assembler that the exit symbol is foreign; it exists even if we won't be defining it
 import exit msvcrt.dll  ; we specify the external library that defines the symbol
-		; msvcrt.dll contains exit, printf and all the other important C-runtime functions
+		; msvcrt.dll contains exit, printf and all the other important C-runtime functions															
 
 ; our variables are declared here (the segment is called data) 
 segment data use32 class=data
@@ -16,6 +16,9 @@ segment data use32 class=data
 segment code use32 class=code
 start:
 ; ... 
+	mov al, -1
+	mov bl, 255
+	add al,bl
     ;aici testam erori si sintaxe incorecte
 	; call exit(0) ), 0 represents status code: SUCCESS
 	push dword 0 ; saves on stack the parameter of the function exit

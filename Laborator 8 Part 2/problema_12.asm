@@ -16,7 +16,7 @@ segment data use32 class=data
     ; apoi sa se citeasca de la tastatura numere si sa se scrie valorile citite in fisier pana cand se citeste de la tastatura valoarea 0. 
     msg_afis db "Afjsare Program, Citire nr pana la 0", 10 , 13 , 0
     msg_char db "Nr:",0
-    nume_fisier db "test.txt",0
+    nume_fisier db "asdf.txt",0
     mod_acces db "a",0
     descriptor_fisier dd -1
     format_scanf db '%s',0
